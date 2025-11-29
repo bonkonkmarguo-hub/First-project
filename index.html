@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<title>Paiement Mobile Burkina Faso</title>
+<style>
+    body { font-family: Arial, sans-serif; padding: 20px; }
+    .btn { display: block; width: 100%; padding: 15px; margin: 10px 0; 
+           font-size: 20px; text-align: center; background: orange; color: white; 
+           border-radius: 8px; text-decoration: none; font-weight: bold; }
+    .moov { background: #b300ff; }
+    input { width: 100%; padding: 12px; margin-top: 10px; font-size: 18px; }
+</style>
+</head>
+<body>
+
+<h1>Paiement Mobile</h1>
+<p>Entrez le montant à payer :</p>
+
+<input id="amount" type="number" placeholder="Montant (FCFA)" />
+
+<a id="om_btn" class="btn">Orange Money</a>
+<a id="moov_btn" class="btn moov">Moov Money</a>
+
+<script>
+document.getElementById("om_btn").onclick = function() {
+    let m = document.getElementById("amount").value;
+    if (!m) { alert("Veuillez entrer un montant."); return; }
+    let ussd = `*144*2*1*22664099806*${m}#`;
+    window.location.href = "tel:" + encodeURIComponent(ussd);
+};
+
+document.getElementById("moov_btn").onclick = function() {
+    let m = document.getElementById("amount").value;
+    if (!m) { alert("Veuillez entrer un montant."); return; }
+    let ussd = `*555*2*1*22673307534*${m}#`;
+    window.location.href = "tel:" + encodeURIComponent(ussd);
+};
+</script>
+
+</body>
+</html>
